@@ -36,7 +36,7 @@ class AddNew extends Component {
             dataType: 'json',
             data: dataToSent,
             headers: {
-                'Access-Control-Allow-Origin': "*"
+                'Access-Control-Allow-Headers': "*"
             }
         }).then(res => {
             this.props.history.goBack();
