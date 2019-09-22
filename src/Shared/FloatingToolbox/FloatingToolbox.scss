@@ -1,0 +1,146 @@
+.FloatingToolbox {
+    position: fixed;
+    top: 140px;
+    left: 10%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    z-index: 200;
+
+    .tool {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 15px;
+        color: #aaa;
+
+        animation: toolComeIn 0.2s ease-in-out;
+
+        cursor: pointer;
+        
+        i {
+            font-size: 3.3em;
+            transform: scale(0.9);
+            transition: 0.2s ease-out;
+        }
+        .name {
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: 600;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+    }
+
+    .tool:hover {
+        opacity: 1;
+
+        i {
+            transform: scale(1);
+        }
+
+        .name {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+
+    .add:hover {
+        color: $primary-color-dark;
+    }
+    .back:hover {
+        color: #666;
+    }
+    .edit:hover {
+        color: #66c;
+    }
+    .delete:hover,
+    .deleteAll:hover {
+        color: #c66;
+    }
+    .edit {
+        position: relative;
+        left: 5px;
+
+        i {
+            font-size: 3em;
+        }
+    }
+
+    .confirmationPanel {
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0px 1px 5px 0px rgba(#000,0.2);
+
+        .message {
+            font-weight: 600;
+            text-align: center; 
+        }
+    }
+}
+
+@keyframes toolComeIn {
+    0%{transform: scale(0)}
+    100%{transform: scale(1)}
+}
+
+@media (min-width: 1300px) {
+    .FloatingToolbox {
+        left: 15%;
+    }
+}
+
+@media (max-width: 800px) {
+    .FloatingToolbox {
+        left: 6%;
+    }
+}
+
+@media (max-width: 600px) {
+    .FloatingToolbox {
+        top: 0px;
+        right: 0px;
+
+        padding: 0px;
+        padding-top: 10px;
+
+        flex-flow: row-reverse nowrap;
+
+        .tool {
+            font-size: 0.9em;
+            margin-bottom: 0px;
+            margin-right: 20px;
+
+            i {
+                transform: scale(1);
+            }
+    
+            .name {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        .add {
+            color: $primary-color-dark;
+        }
+        .back {
+            color: #666;
+        }
+        .edit {
+            color: #66c;
+        }
+        .delete,
+        .deleteAll {
+            color: #c66;
+        }
+    }
+}

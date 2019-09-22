@@ -1,0 +1,614 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+.MainPage {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100vw;
+  height: auto;
+}
+.MainPage .estateBoxesContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 600px;
+  margin-top: 15px;
+  box-sizing: border-box;
+}
+
+.AddNew {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+}
+
+.EstateView {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.EstateView .estateDataContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+.EstateView .estateDataContainer .data {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2em;
+  width: 400px;
+  max-width: 95vw;
+  color: #222;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.EstateView .estateDataContainer .data .name {
+  text-align: left;
+  font-weight: 600;
+}
+.EstateView .estateDataContainer .data .value {
+  text-align: right;
+}
+.EstateView .estateDataContainer .data .name::after {
+  content: ":";
+}
+.EstateView .estateDataContainer .data.description {
+  flex-flow: column nowrap;
+}
+.EstateView .estateDataContainer .data.description .name,
+.EstateView .estateDataContainer .data.description .value {
+  text-align: center;
+}
+
+.EditEstate {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+}
+
+.FormField {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 90px;
+  padding: 4px;
+  margin-left: 6px;
+  margin-right: 6px;
+  box-sizing: border-box;
+}
+.FormField input {
+  font-family: inherit;
+  font-size: 0.95em;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: 0.5s;
+  z-index: 10;
+}
+.FormField input:focus {
+  outline: none;
+}
+.FormField .errorMessage {
+  color: #ab0000;
+  font-size: 0.8em;
+  animation: errorMessageSlideIn 0.5s ease-out 1;
+  z-index: 5;
+}
+
+@keyframes errorMessageSlideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.FormField.error input {
+  border: 2px solid #ab0000;
+}
+
+.FormField.validated input {
+  border: 2px solid #156d3a;
+}
+
+.FormField.textarea input {
+  height: 300px;
+  width: 200px;
+  word-break: break-word;
+}
+
+.TextAreaField {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 60%;
+}
+.TextAreaField textarea {
+  width: 100%;
+  resize: none;
+  font-family: inherit;
+  font-size: 0.95em;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: 0.5s;
+}
+.TextAreaField textarea:focus {
+  outline: none;
+}
+
+.TextAreaField.error textarea {
+  border: 2px solid #ab0000;
+}
+
+.TextAreaField.validated textarea {
+  border: 2px solid #156d3a;
+}
+
+.EstateBlock {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 60px;
+  max-width: 95vw;
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+}
+.EstateBlock .blockId {
+  border-right: 1px solid #ddd;
+  width: 50px;
+  text-align: center;
+  color: #888;
+}
+.EstateBlock .location {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 35%;
+  min-width: 0px;
+}
+.EstateBlock .location .city {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+.EstateBlock .location .address {
+  font-weight: 0.7em;
+  color: #666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.EstateBlock .price {
+  font-size: 1.05em;
+}
+.EstateBlock .type {
+  box-sizing: border-box;
+  font-size: 0.9em;
+}
+.EstateBlock .type .name {
+  color: #666;
+}
+.EstateBlock .icons {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 80px;
+}
+.EstateBlock .icons i {
+  font-size: 1.3em;
+  transform: scale(0);
+  color: #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.EstateBlock .icons i.fa-edit:hover {
+  color: #66c;
+}
+.EstateBlock .icons i.fa-trash-alt:hover {
+  color: #ab0000;
+}
+
+.EstateBlock:hover {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+}
+.EstateBlock:hover .icons i {
+  font-size: 1.3;
+  transform: scale(1);
+}
+
+.EstateBlock:first-of-type {
+  border-top: none;
+}
+
+@media (min-width: 1000px) {
+  .EstateBlock {
+    width: 700px;
+  }
+}
+@media (max-width: 600px) {
+  .EstateBlock .blockId {
+    width: 20px;
+  }
+  .EstateBlock .icons {
+    width: 50px;
+  }
+  .EstateBlock .icons i {
+    font-size: 1.3;
+    transform: scale(1);
+  }
+}
+.FloatingToolbox {
+  position: fixed;
+  top: 140px;
+  left: 10%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 200;
+}
+.FloatingToolbox .tool {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #aaa;
+  animation: toolComeIn 0.2s ease-in-out;
+  cursor: pointer;
+}
+.FloatingToolbox .tool i {
+  font-size: 3.3em;
+  transform: scale(0.9);
+  transition: 0.2s ease-out;
+}
+.FloatingToolbox .tool .name {
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 600;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: 0.3s;
+}
+.FloatingToolbox .tool:hover {
+  opacity: 1;
+}
+.FloatingToolbox .tool:hover i {
+  transform: scale(1);
+}
+.FloatingToolbox .tool:hover .name {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.FloatingToolbox .add:hover {
+  color: #156d3a;
+}
+.FloatingToolbox .back:hover {
+  color: #666;
+}
+.FloatingToolbox .edit:hover {
+  color: #66c;
+}
+.FloatingToolbox .delete:hover,
+.FloatingToolbox .deleteAll:hover {
+  color: #c66;
+}
+.FloatingToolbox .edit {
+  position: relative;
+  left: 5px;
+}
+.FloatingToolbox .edit i {
+  font-size: 3em;
+}
+.FloatingToolbox .confirmationPanel {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.FloatingToolbox .confirmationPanel .message {
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes toolComeIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (min-width: 1300px) {
+  .FloatingToolbox {
+    left: 15%;
+  }
+}
+@media (max-width: 800px) {
+  .FloatingToolbox {
+    left: 6%;
+  }
+}
+@media (max-width: 600px) {
+  .FloatingToolbox {
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+    padding-top: 10px;
+    flex-flow: row-reverse nowrap;
+  }
+  .FloatingToolbox .tool {
+    font-size: 0.9em;
+    margin-bottom: 0px;
+    margin-right: 20px;
+  }
+  .FloatingToolbox .tool i {
+    transform: scale(1);
+  }
+  .FloatingToolbox .tool .name {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  .FloatingToolbox .add {
+    color: #156d3a;
+  }
+  .FloatingToolbox .back {
+    color: #666;
+  }
+  .FloatingToolbox .edit {
+    color: #66c;
+  }
+  .FloatingToolbox .delete,
+.FloatingToolbox .deleteAll {
+    color: #c66;
+  }
+}
+.RecentActivityBar {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
+}
+.RecentActivityBar .activity {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding: 5px;
+  font-weight: 600;
+  max-width: 250px;
+  color: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  animation: activitySlideinAndOut 5s ease-in-out;
+}
+.RecentActivityBar .activity i {
+  font-size: 2em;
+  padding: 4px;
+}
+.RecentActivityBar .activity .info {
+  text-align: center;
+  padding: 4px;
+}
+.RecentActivityBar .add {
+  background-color: #156d3a;
+}
+.RecentActivityBar .edit {
+  background-color: #66c;
+}
+.RecentActivityBar .delete,
+.RecentActivityBar .deleteAll {
+  background-color: #c66;
+}
+.RecentActivityBar .addError,
+.RecentActivityBar .editError,
+.RecentActivityBar .deleteError,
+.RecentActivityBar .deleteAllError,
+.RecentActivityBar .loadingError {
+  background-color: #993;
+}
+
+@keyframes activitySlideinAndOut {
+  0% {
+    transform: translateX(300px);
+  }
+  10% {
+    transform: translateX(0px);
+  }
+  90% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+.Menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 80px;
+  background-color: #fff;
+  border-bottom: 4px #156d3a solid;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+.Menu svg {
+  height: 60%;
+  margin: 10px;
+}
+.Menu svg #house {
+  fill: #009e42;
+}
+.Menu svg #firstLine, .Menu svg #secondLine {
+  fill: #222;
+}
+
+@media (max-width: 600px) {
+  .Menu {
+    height: 60px;
+  }
+}
+body {
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  width: 100vw;
+  overflow-x: hidden;
+}
+body .App {
+  height: 100%;
+  width: 100vw;
+}
+body .App .page {
+  margin-top: 80px;
+}
+body .title {
+  width: 100%;
+  background-color: #156d3a;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin-top: 20px;
+}
+.form .buttonsBox {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  box-sizing: border-box;
+  width: 90%;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1.1em;
+  background-color: none;
+  font-weight: 600;
+  color: #fff;
+  background-color: #aaa;
+  min-width: 90px;
+  padding: 5px;
+  margin: 4px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover,
+button.green:focus {
+  background-color: #888;
+}
+
+button.green:active {
+  background-color: #666;
+}
+
+button.green:focus {
+  outline: none;
+}
+
+button.green {
+  background-color: #156d3a;
+}
+
+button.green:hover,
+button.green:focus {
+  background-color: #11582f;
+}
+
+button.green:active {
+  background-color: #092d18;
+}
+
+button.red {
+  background-color: #ab0000;
+}
+
+button.red:hover,
+button.red:focus {
+  background-color: #920000;
+}
+
+button.red:active {
+  background-color: #5f0000;
+}
+
+button.blue {
+  background-color: #66c;
+}
+
+button.blue:hover,
+button.blue:focus {
+  background-color: #5353c6;
+}
+
+button.blue:active {
+  background-color: #3939ac;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+  body .App .page {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 350px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

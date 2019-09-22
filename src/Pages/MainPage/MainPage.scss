@@ -1,0 +1,21 @@
+.MainPage {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100vw;
+    height: auto;
+
+    .estateBoxesContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-around;
+
+        max-width: 600px;
+        margin-top: 15px;
+        box-sizing: border-box;
+    }
+}

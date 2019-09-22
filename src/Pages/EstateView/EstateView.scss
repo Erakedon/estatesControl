@@ -1,0 +1,51 @@
+.EstateView {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+        .estateDataContainer {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 40px;
+
+            .data {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-between;
+
+                font-size: 1.2em;
+                width: 400px;
+                max-width: 95vw;
+                color: $text-color-dark;
+
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                .name {
+                    text-align: left;
+                    font-weight: 600;
+                }
+                .value {
+                    text-align: right;
+                }
+
+                .name::after {
+                    content: ":";
+                }
+            }
+
+            .data.description {
+                flex-flow: column nowrap;
+
+                .name,
+                .value {
+                    text-align: center;
+                }
+            }
+        }
+}

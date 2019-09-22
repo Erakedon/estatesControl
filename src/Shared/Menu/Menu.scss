@@ -1,0 +1,37 @@
+.Menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 80px;
+
+    background-color: #fff;
+    border-bottom: 4px $primary-color-dark solid;
+    box-shadow: 2px 2px 2px 0px rgba(#000,0.2);
+
+    z-index: 100;
+
+    svg {
+        height: 60%;
+        margin: 10px;
+
+        #house {
+            fill: $primary-color;
+        }
+        #firstLine, #secondLine {
+            fill: $text-color-dark;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .Menu {
+        height: 60px;
+    }
+}

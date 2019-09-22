@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+@import "./colors.scss";
+
+@import "./Pages/MainPage/MainPage.scss";
+@import "./Pages/AddNew/AddNew.scss";
+@import "./Pages/EstateView/EstateView.scss";
+@import "./Pages/EditEstate/EditEstate.scss";
+
+@import "./Shared/FormField/FormField.scss";
+@import "./Shared/TextAreaField/TextAreaField.scss";
+@import "./Shared/EstateBlock/EstateBlock.scss";
+@import "./Shared/FloatingToolbox/FloatingToolbox.scss";
+@import "./Shared/RecentActivityBar/RecentActivityBar.scss";
+@import "./Shared/Menu/Menu.scss";
+
+body {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    width: 100vw;
+    overflow-x: hidden;
+
+    .App {
+        height: 100%;
+        width: 100vw;
+
+        .page {
+            margin-top: 80px;
+        }
+    }
+    
+    .title {
+        width: 100%;
+        background-color: $primary-color-dark;
+        color: $text-color-light;
+        text-align: center; 
+        font-size: 2em;
+        font-weight: 500;
+        box-shadow: 2px 2px 2px 0px rgba(#000,0.2);
+    }    
+}
+
+.form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 600px;
+    margin-top: 20px;
+
+    .buttonsBox {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        margin-top: 10px;
+        box-sizing: border-box;
+
+        width: 90%;
+    }
+}
+
+button {
+    font-family: inherit;
+    font-size: 1.1em;
+    background-color: none;
+    font-weight: 600;
+    color: $text-color-light;
+    background-color: #aaa;    
+
+    min-width: 90px;
+
+    padding: 5px;
+    margin: 4px;
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+button:hover,
+button.green:focus {
+    background-color: #888;
+}
+
+button.green:active {
+    background-color: #666;
+}
+
+button.green:focus {
+    outline: none;
+}
+
+button.green {
+    background-color: $primary-color-dark;    
+}
+
+button.green:hover,
+button.green:focus {
+    background-color: darken($primary-color-dark, 5%);
+}
+
+button.green:active {
+    background-color: darken($primary-color-dark, 15%);
+}
+
+button.red {
+    background-color: $error-color;    
+}
+
+button.red:hover,
+button.red:focus {
+    background-color: darken($error-color, 5%);
+}
+
+button.red:active {
+    background-color: darken($error-color, 15%);
+}
+
+button.blue {
+    background-color: #66c;    
+}
+
+button.blue:hover,
+button.blue:focus {
+    background-color: darken(#66c, 5%);
+}
+
+button.blue:active {
+    background-color: darken(#66c, 15%);
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 12px;
+        
+        .App {
+            .page {
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    body {
+        font-size: 10px;
+    }
+}
